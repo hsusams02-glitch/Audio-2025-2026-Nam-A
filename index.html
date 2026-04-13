@@ -47,16 +47,9 @@
       color: #2980b9;
       margin-bottom: 8px;
     }
-    .now-playing h2 {
-      font-size: 1.1rem;
-      color: #1a252f;
-      margin-bottom: 4px;
-    }
-    .now-playing .subtitle {
-      font-size: 0.88rem;
-      color: #7f8c8d;
-      margin-bottom: 14px;
-    }
+    .now-playing h2 { font-size: 1.1rem; color: #1a252f; margin-bottom: 4px; }
+    .now-playing .subtitle { font-size: 0.88rem; color: #7f8c8d; margin-bottom: 14px; }
+
     audio {
       width: 100%;
       border-radius: 8px;
@@ -119,10 +112,7 @@
       font-size: 1rem;
       color: #2980b9;
     }
-    .track.active .track-icon {
-      background: #2980b9;
-      color: #fff;
-    }
+    .track.active .track-icon { background: #2980b9; color: #fff; }
     .track-info { flex: 1; min-width: 0; }
     .track-name {
       font-size: 0.95rem;
@@ -132,11 +122,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .track-meta {
-      font-size: 0.8rem;
-      color: #7f8c8d;
-      margin-top: 2px;
-    }
+    .track-meta { font-size: 0.8rem; color: #7f8c8d; margin-top: 2px; }
     .track-badge {
       font-size: 0.72rem;
       color: #2980b9;
@@ -145,18 +131,11 @@
       padding: 2px 8px;
       flex-shrink: 0;
     }
-    .track.active .track-badge {
-      background: #2980b9;
-      color: #fff;
-    }
+    .track.active .track-badge { background: #2980b9; color: #fff; }
 
     /* ── FOOTER ── */
     hr { border: none; border-top: 1px solid #dce3ea; margin: 8px 0 20px; }
-    footer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: #aab0b8;
-    }
+    footer { text-align: center; font-size: 0.82rem; color: #aab0b8; }
     footer a { color: #95a5a6; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
   </style>
@@ -164,36 +143,29 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
   <header>
     <h1>🎵 Kho Nhạc Phụng Vụ 2025–2026 – Năm A</h1>
     <p>Giáo Xứ Mạc Ty Nho – 16A Nguyễn Thị Minh Khai, Sài Gòn</p>
   </header>
 
-  <!-- NOW PLAYING -->
   <div class="now-playing">
     <div class="label">▶ Đang phát</div>
     <h2 id="np-title">—</h2>
     <p class="subtitle" id="np-subtitle">Chọn bài bên dưới để phát</p>
-
-    <audio id="player" controls preload="none"
-           aria-label="Trình phát nhạc phụng vụ">
+    <audio id="player" controls preload="none" aria-label="Trình phát nhạc phụng vụ">
       <source id="player-src" src="" type="audio/mpeg" />
       <span>Trình duyệt của bạn không hỗ trợ phát nhạc trực tiếp.</span>
     </audio>
-
     <br />
     <a class="download-link" id="download-link" href="#" rel="noopener" style="display:none;">
       📥 Tải xuống MP3
     </a>
-
     <div class="info-box" id="info-box" style="display:none;">
       <span id="info-liturgy"></span><br />
       <span id="info-song"></span>
     </div>
   </div>
 
-  <!-- PLAYLIST -->
   <div class="playlist-title">📋 Danh sách bài hát</div>
   <div class="playlist" id="playlist"></div>
 
@@ -208,17 +180,37 @@
   </footer>
 
 </div>
-
 <script>
-  // ═══════════════════════════════════════════════════
-  // DANH SÁCH BÀI HÁT – thêm bài mới vào đây
-  // Mỗi bài là 1 object { title, subtitle, liturgy, song, file, download }
-  // file     = tên file MP3 (không cần URL đầy đủ)
-  // download = tên file khi tải về (không dấu, gạch ngang)
-  // ═══════════════════════════════════════════════════
   const BASE = "https://hsusams02-glitch.github.io/Audio-2025-2026-Nam-A/";
 
+  // ╔═══════════════════════════════════════════════════════════════╗
+  // ║  THÊM BÀI MỚI – HƯỚNG DẪN NHANH                             ║
+  // ╠═══════════════════════════════════════════════════════════════╣
+  // ║  1. Copy khối object mẫu bên dưới                            ║
+  // ║  2. Paste VÀO ĐẦU mảng tracks (trước bài hiện có)           ║
+  // ║  3. Điền thông tin bài mới, giữ nguyên dấu phẩy cuối        ║
+  // ║  4. Lưu file → commit lên GitHub → done ✓                   ║
+  // ╠═══════════════════════════════════════════════════════════════╣
+  // ║  MẪU COPY:                                                   ║
+  // ║  {                                                           ║
+  // ║    title:    "Tên Ca Khúc",                                  ║
+  // ║    subtitle: "Thứ ... Tuần ... – Năm A",                    ║
+  // ║    liturgy:  "📅 Phụng vụ: ... – Năm A",                    ║
+  // ║    song:     "🎵 Ca khúc: Tên Ca Khúc",                     ║
+  // ║    file:     "YYYYMMDD-ten-file-khong-dau.mp3",             ║
+  // ║    download: "Ten-File-Tai-Ve-Khong-Dau.mp3"                ║
+  // ║  },                                                          ║
+  // ╠═══════════════════════════════════════════════════════════════╣
+  // ║  QUY TẮC TÊN FILE MP3:                                       ║
+  // ║  – Không dấu tiếng Việt                                     ║
+  // ║  – Không dấu chấm giữa tên (chỉ dùng trước .mp3)           ║
+  // ║  – Dùng gạch ngang (-) thay space                           ║
+  // ║  – Ví dụ: 20260413-doi-moi-long-con-t2-phuc-sinh-2026.mp3  ║
+  // ╚═══════════════════════════════════════════════════════════════╝
+
   const tracks = [
+
+    // ── BÀI MỚI NHẤT ĐẶT TRÊN ĐẦU ──────────────────────────────
     {
       title:    "Đổi Mới Lòng Con",
       subtitle: "Thứ Hai Tuần Bát Nhật Phục Sinh 2026 – Năm A",
@@ -227,6 +219,8 @@
       file:     "20260413-doi-moi-long-con-t2-ii-phuc-sinh-2026-nam-a.mp3",
       download: "Doi-Moi-Long-Con-T2-II-Phuc-Sinh-2026-Nam-A.mp3"
     },
+
+    // ────────────────────────────────────────────────────────────
     {
       title:    "Dưới Mái Hiên Tình Thương",
       subtitle: "Chúa Nhật II Phục Sinh 2026 – Năm A",
@@ -235,9 +229,10 @@
       file:     "20260412-duoi-mai-hien-tinh-thuong-cn2-phuc-sinh-2026.mp3",
       download: "Duoi-Mai-Hien-Tinh-Thuong-CN2-Phuc-Sinh-2026.mp3"
     },
-  ];
-  // ═══════════════════════════════════════════════════
 
+  ]; // ← KẾT THÚC DANH SÁCH – không sửa dòng này
+
+  // ── PLAYER LOGIC – không cần chỉnh bên dưới ─────────────────
   const player      = document.getElementById("player");
   const playerSrc   = document.getElementById("player-src");
   const npTitle     = document.getElementById("np-title");
@@ -247,41 +242,35 @@
   const infoLiturgy = document.getElementById("info-liturgy");
   const infoSong    = document.getElementById("info-song");
   const playlist    = document.getElementById("playlist");
-
-  let activeIndex = -1;
+  let activeIndex   = -1;
 
   function loadTrack(index) {
-    const t = tracks[index];
+    const t   = tracks[index];
     const url = BASE + t.file;
 
-    // Update player
     playerSrc.src = url;
     player.load();
     player.play();
     player.setAttribute("aria-label", "Nghe " + t.title + " – " + t.subtitle);
 
-    // Update now-playing UI
-    npTitle.textContent    = "🎵 " + t.title;
-    npSubtitle.textContent = t.subtitle;
-    dlLink.href            = url;
+    npTitle.textContent     = "🎵 " + t.title;
+    npSubtitle.textContent  = t.subtitle;
+    dlLink.href             = url;
     dlLink.setAttribute("download", t.download);
-    dlLink.style.display   = "inline-block";
+    dlLink.style.display    = "inline-block";
     infoLiturgy.textContent = t.liturgy;
     infoSong.textContent    = t.song;
-    infoBox.style.display  = "block";
+    infoBox.style.display   = "block";
 
-    // Update active state in playlist
     document.querySelectorAll(".track").forEach(function(el, i) {
       el.classList.toggle("active", i === index);
-      el.querySelector(".track-icon").textContent = i === index ? "▶" : "🎵";
-      const badge = el.querySelector(".track-badge");
-      if (badge) badge.textContent = i === index ? "Đang phát" : "";
+      el.querySelector(".track-icon").textContent  = i === index ? "▶" : "🎵";
+      el.querySelector(".track-badge").textContent = i === index ? "Đang phát" : "";
     });
 
     activeIndex = index;
   }
 
-  // Build playlist
   tracks.forEach(function(t, i) {
     const div = document.createElement("div");
     div.className = "track";
@@ -295,7 +284,6 @@
         '<div class="track-meta">' + t.subtitle + '</div>' +
       '</div>' +
       '<span class="track-badge"></span>';
-
     div.addEventListener("click", function() { loadTrack(i); });
     div.addEventListener("keydown", function(e) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadTrack(i); }
@@ -303,10 +291,8 @@
     playlist.appendChild(div);
   });
 
-  // Auto-advance to next track
   player.addEventListener("ended", function() {
-    const next = (activeIndex + 1) % tracks.length;
-    loadTrack(next);
+    loadTrack((activeIndex + 1) % tracks.length);
   });
 </script>
 </body>
