@@ -3,351 +3,617 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kho nhạc phụng vụ Năm A 2025–2026 – Giáo xứ Mạc Ty Nho Sài Gòn. Nghe và tải các ca khúc thánh lễ theo lịch phụng vụ." />
+  <meta name="description" content="Kho nhạc phụng vụ Giáo xứ Mạc Ty Nho Sài Gòn – Năm A 2025–2026. Nghe và tải các ca khúc thánh lễ theo lịch phụng vụ." />
   <meta name="robots" content="index, follow" />
-  <title>Kho Nhạc Phụng Vụ 2025–2026 – Năm A – Giáo Xứ Mạc Ty Nho</title>
+  <title>Kho Nhạc Phụng Vụ – Giáo Xứ Mạc Ty Nho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* ── TOKENS ───────────────────────────────────────── */
+    :root {
+      --cream:   #faf7f2;
+      --warm:    #f0e8d8;
+      --gold:    #b8860b;
+      --gold-lt: #e8d5a3;
+      --ink:     #2a1f0e;
+      --ink-mid: #6b5740;
+      --ink-lt:  #a08060;
+      --blue:    #1a5fa8;
+      --blue-lt: #d6e8f8;
+      --white:   #ffffff;
+      --shadow:  0 2px 16px rgba(42,31,14,0.10);
+      --radius:  14px;
+      --ff-head: 'Lora', Georgia, serif;
+      --ff-body: 'DM Sans', Arial, sans-serif;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      color: #2c3e50;
-      padding: 20px 16px 40px;
-      line-height: 1.7;
+      font-family: var(--ff-body);
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 0 0 48px;
     }
 
-    .container { max-width: 680px; margin: 0 auto; }
-
-    /* ── HEADER ── */
-    header {
+    /* ── HERO HEADER ─────────────────────────────────── */
+    .site-header {
+      background: linear-gradient(135deg, #1a3a6b 0%, #0d2244 100%);
+      padding: 32px 20px 28px;
       text-align: center;
-      padding: 28px 20px 22px;
-      background: #fff;
-      border-radius: 14px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      position: relative;
+      overflow: hidden;
     }
-    header h1 { font-size: 1.45rem; color: #1a252f; margin-bottom: 6px; }
-    header p  { font-size: 0.92rem; color: #7f8c8d; }
+    .site-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .site-header h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: relative;
+    }
+    .site-header h1 .emoji { font-style: normal; }
+    .site-header p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 6px;
+      position: relative;
+    }
 
-    /* ── NOW PLAYING ── */
+    /* ── LAYOUT ──────────────────────────────────────── */
+    .main { max-width: 700px; margin: 0 auto; padding: 0 16px; }
+
+    /* ── NOW PLAYING ─────────────────────────────────── */
     .now-playing {
-      background: #fff;
-      border-radius: 14px;
-      padding: 24px 20px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 20px 18px;
+      margin: 20px 0 16px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--gold);
     }
-    .now-playing .label {
-      font-size: 0.78rem;
-      font-weight: bold;
+    .np-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #2980b9;
+      color: var(--gold);
       margin-bottom: 8px;
     }
-    .now-playing h2 { font-size: 1.1rem; color: #1a252f; margin-bottom: 4px; }
-    .now-playing .subtitle { font-size: 0.88rem; color: #7f8c8d; margin-bottom: 14px; }
+    .np-title {
+      font-family: var(--ff-head);
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 3px;
+      min-height: 1.5em;
+    }
+    .np-subtitle { font-size: 0.85rem; color: var(--ink-lt); margin-bottom: 14px; }
 
     audio {
       width: 100%;
       border-radius: 8px;
+      margin-bottom: 10px;
+      accent-color: var(--blue);
+    }
+    .np-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 12px;
-      accent-color: #2980b9;
     }
-    .download-link {
-      display: inline-block;
-      color: #2980b9;
-      font-size: 0.9rem;
+    .dl-btn {
+      font-size: 0.85rem;
+      color: var(--blue);
       text-decoration: none;
-      margin-bottom: 14px;
+      font-weight: 500;
+      display: none;
     }
-    .download-link:hover { text-decoration: underline; }
+    .dl-btn:hover { text-decoration: underline; }
+
     .info-box {
-      background: #eaf4fb;
+      background: var(--blue-lt);
       border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.88rem;
-      color: #2c3e50;
+      padding: 9px 13px;
+      font-size: 0.83rem;
+      color: var(--ink-mid);
       line-height: 1.9;
+      display: none;
     }
 
-    /* ── PLAYLIST ── */
-    .playlist-title {
+    /* ── FILTER BAR ──────────────────────────────────── */
+    .filter-bar {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Year tabs */
+    .year-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .year-tab {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--gold-lt);
+      background: transparent;
+      font-family: var(--ff-body);
       font-size: 0.85rem;
-      font-weight: bold;
+      font-weight: 600;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .year-tab:hover { border-color: var(--gold); color: var(--gold); }
+    .year-tab.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    /* Month chips */
+    .month-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: #95a5a6;
-      margin-bottom: 10px;
-      padding-left: 4px;
+      color: var(--ink-lt);
+      margin-bottom: 8px;
     }
+    .month-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .chip {
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1.5px solid #ddd;
+      background: transparent;
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chip:hover { border-color: var(--blue); color: var(--blue); }
+    .chip.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .chip.all { font-weight: 600; }
+
+    /* Search */
+    .search-wrap { position: relative; }
+    .search-wrap svg {
+      position: absolute;
+      left: 11px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-lt);
+      pointer-events: none;
+    }
+    #search {
+      width: 100%;
+      padding: 9px 12px 9px 34px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-family: var(--ff-body);
+      font-size: 0.88rem;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #search:focus { border-color: var(--blue); }
+    #search::placeholder { color: var(--ink-lt); }
+
+    /* ── PLAYLIST ────────────────────────────────────── */
+    .list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding: 0 2px;
+    }
+    .list-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+    }
+    .list-count { font-size: 0.78rem; color: var(--ink-lt); }
+
     .playlist {
-      background: #fff;
-      border-radius: 14px;
+      background: var(--white);
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      margin-bottom: 24px;
+      box-shadow: var(--shadow);
     }
+    .empty-state {
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--ink-lt);
+      font-size: 0.9rem;
+    }
+
     .track {
       display: flex;
       align-items: center;
-      padding: 14px 16px;
-      cursor: pointer;
-      border-bottom: 1px solid #f0f2f5;
-      transition: background 0.15s;
+      padding: 13px 16px;
       gap: 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #f3ede3;
+      transition: background 0.12s;
     }
     .track:last-child { border-bottom: none; }
-    .track:hover { background: #f7fbff; }
-    .track.active { background: #eaf4fb; }
+    .track:hover { background: #fdf8f0; }
+    .track.active { background: #eef5ff; }
+
+    .track-num {
+      width: 28px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--ink-lt);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .track.active .track-num { color: var(--blue); font-weight: 700; }
 
     .track-icon {
-      width: 36px; height: 36px;
-      background: #d6eaf8;
+      width: 34px; height: 34px;
       border-radius: 50%;
+      background: var(--warm);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      font-size: 1rem;
-      color: #2980b9;
+      font-size: 0.9rem;
+      transition: all 0.15s;
     }
-    .track.active .track-icon { background: #2980b9; color: #fff; }
+    .track.active .track-icon { background: var(--blue); }
+
     .track-info { flex: 1; min-width: 0; }
     .track-name {
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: #1a252f;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .track-meta { font-size: 0.8rem; color: #7f8c8d; margin-top: 2px; }
-    .track-badge {
-      font-size: 0.72rem;
-      color: #2980b9;
-      background: #d6eaf8;
-      border-radius: 20px;
-      padding: 2px 8px;
-      flex-shrink: 0;
-    }
-    .track.active .track-badge { background: #2980b9; color: #fff; }
+    .track.active .track-name { color: var(--blue); }
+    .track-meta { font-size: 0.76rem; color: var(--ink-lt); margin-top: 2px; }
 
-    /* ── FOOTER ── */
-    hr { border: none; border-top: 1px solid #dce3ea; margin: 8px 0 20px; }
-    footer { text-align: center; font-size: 0.82rem; color: #aab0b8; }
-    footer a { color: #95a5a6; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .track-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--blue);
+      background: var(--blue-lt);
+      border-radius: 20px;
+      padding: 3px 9px;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    .site-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-lt);
+      padding: 28px 16px 0;
+    }
+    .site-footer a { color: var(--ink-mid); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-<div class="container">
 
-  <header>
-    <h1>🎵 Kho Nhạc Phụng Vụ 2025–2026 – Năm A</h1>
-    <p>Giáo Xứ Mạc Ty Nho – 16A Nguyễn Thị Minh Khai, Sài Gòn</p>
-  </header>
+<header class="site-header">
+  <h1><span class="emoji">🎵</span> Kho Nhạc Phụng Vụ</h1>
+  <p>Giáo Xứ Mạc Ty Nho – 16A Nguyễn Thị Minh Khai, Sài Gòn</p>
+</header>
 
+<div class="main">
+
+  <!-- NOW PLAYING -->
   <div class="now-playing">
-    <div class="label">▶ Đang phát</div>
-    <h2 id="np-title">—</h2>
-    <p class="subtitle" id="np-subtitle">Chọn bài bên dưới để phát</p>
+    <div class="np-eyebrow">▶ Đang phát</div>
+    <div class="np-title" id="np-title">—</div>
+    <div class="np-subtitle" id="np-subtitle">Chọn bài bên dưới để phát</div>
     <audio id="player" controls preload="none" aria-label="Trình phát nhạc phụng vụ">
       <source id="player-src" src="" type="audio/mpeg" />
       <span>Trình duyệt của bạn không hỗ trợ phát nhạc trực tiếp.</span>
     </audio>
-    <br />
-    <a class="download-link" id="download-link" href="#" rel="noopener" style="display:none;">
-      📥 Tải xuống MP3
-    </a>
-    <div class="info-box" id="info-box" style="display:none;">
+    <div class="np-actions">
+      <a class="dl-btn" id="dl-btn" href="#" rel="noopener">📥 Tải xuống MP3</a>
+    </div>
+    <div class="info-box" id="info-box">
       <span id="info-liturgy"></span><br />
       <span id="info-song"></span>
     </div>
   </div>
 
-  <div class="playlist-title">📋 Danh sách bài hát</div>
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <!-- Year tabs -->
+    <div class="year-tabs" id="year-tabs"></div>
+    <!-- Month chips -->
+    <div class="month-label">Lọc theo tháng</div>
+    <div class="month-chips" id="month-chips"></div>
+    <!-- Search -->
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="search" placeholder="Tìm tên bài hát..." aria-label="Tìm kiếm bài hát" autocomplete="off" />
+    </div>
+  </div>
+
+  <!-- PLAYLIST -->
+  <div class="list-header">
+    <span class="list-label">📋 Danh sách</span>
+    <span class="list-count" id="list-count"></span>
+  </div>
   <div class="playlist" id="playlist"></div>
 
-  <hr />
-  <footer>
+  <footer class="site-footer">
     <p>
-      <a href="https://giaoxumactynho.blogspot.com/" rel="noopener" target="_blank">
-        Giáo Xứ Mạc Ty Nho Sài Gòn
-      </a>
+      <a href="https://giaoxumactynho.blogspot.com/" rel="noopener" target="_blank">Giáo Xứ Mạc Ty Nho Sài Gòn</a>
       &nbsp;|&nbsp; Trang được lưu trữ trên GitHub Pages
     </p>
   </footer>
-
 </div>
+
 <script>
-  const BASE = "https://hsusams02-glitch.github.io/Audio-2025-2026-Nam-A/";
+// ╔═══════════════════════════════════════════════════════════════════╗
+// ║  THÊM BÀI MỚI – HƯỚNG DẪN NHANH                                 ║
+// ╠═══════════════════════════════════════════════════════════════════╣
+// ║  1. Copy khối object mẫu bên dưới                                ║
+// ║  2. Paste VÀO ĐẦU mảng tracks[] của đúng năm                    ║
+// ║  3. Điền thông tin, giữ nguyên dấu phẩy cuối                    ║
+// ║  4. Lưu → commit GitHub → done ✓                                ║
+// ╠═══════════════════════════════════════════════════════════════════╣
+// ║  MẪU COPY:                                                       ║
+// ║  {                                                               ║
+// ║    title:    "Tên Ca Khúc",                                      ║
+// ║    subtitle: "Thứ .../Chúa Nhật ... – Năm A",                   ║
+// ║    liturgy:  "📅 Phụng vụ: ... – Năm A",                        ║
+// ║    song:     "🎵 Ca khúc: Tên Ca Khúc",                         ║
+// ║    file:     "YYYYMMDD-ten-file-khong-dau.mp3",                 ║
+// ║    download: "Ten-File-Tai-Ve.mp3",                              ║
+// ║    month:    4,    ← tháng (số nguyên 1–12)                     ║
+// ║    year:     "2025-2026"  ← năm phụng vụ                        ║
+// ║  },                                                              ║
+// ╠═══════════════════════════════════════════════════════════════════╣
+// ║  QUY TẮC TÊN FILE MP3:                                           ║
+// ║  – Không dấu tiếng Việt                                         ║
+// ║  – Không dấu chấm giữa tên (chỉ dùng trước .mp3)               ║
+// ║  – Dùng gạch ngang (-) thay space                               ║
+// ║  – VD: 20260413-doi-moi-long-con-t2-phuc-sinh-2026.mp3          ║
+// ╚═══════════════════════════════════════════════════════════════════╝
 
-  // ╔═══════════════════════════════════════════════════════════════╗
-  // ║  THÊM BÀI MỚI – HƯỚNG DẪN NHANH                             ║
-  // ╠═══════════════════════════════════════════════════════════════╣
-  // ║  1. Copy khối object mẫu bên dưới                            ║
-  // ║  2. Paste VÀO ĐẦU mảng tracks (trước bài hiện có)           ║
-  // ║  3. Điền thông tin bài mới, giữ nguyên dấu phẩy cuối        ║
-  // ║  4. Lưu file → commit lên GitHub → done ✓                   ║
-  // ╠═══════════════════════════════════════════════════════════════╣
-  // ║  MẪU COPY:                                                   ║
-  // ║  {                                                           ║
-  // ║    title:    "Tên Ca Khúc",                                  ║
-  // ║    subtitle: "Thứ ... Tuần ... – Năm A",                    ║
-  // ║    liturgy:  "📅 Phụng vụ: ... – Năm A",                    ║
-  // ║    song:     "🎵 Ca khúc: Tên Ca Khúc",                     ║
-  // ║    file:     "YYYYMMDD-ten-file-khong-dau.mp3",             ║
-  // ║    download: "Ten-File-Tai-Ve-Khong-Dau.mp3"                ║
-  // ║  },                                                          ║
-  // ╠═══════════════════════════════════════════════════════════════╣
-  // ║  QUY TẮC TÊN FILE MP3:                                       ║
-  // ║  – Không dấu tiếng Việt                                     ║
-  // ║  – Không dấu chấm giữa tên (chỉ dùng trước .mp3)           ║
-  // ║  – Dùng gạch ngang (-) thay space                           ║
-  // ║  – Ví dụ: 20260413-doi-moi-long-con-t2-phuc-sinh-2026.mp3  ║
-  // ╚═══════════════════════════════════════════════════════════════╝
+const BASE = "https://hsusams02-glitch.github.io/Audio-2025-2026-Nam-A/";
 
-  const tracks = [
+const tracks = [
 
-    // ── BÀI MỚI NHẤT ĐẶT TRÊN ĐẦU ──────────────────────────────
-   {                                                           
-      title:    "The Stone Cast Aside",                                  
-      subtitle: "Chúa nhật Tuần III – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Chúa nhật Tuần III – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: The Stone Cast Aside",                   
-      file:     "20260419-the-stone-cast-aside-cn-iii-phuc-sinh-2026-nam-a.mp3",           
-      download: "The-Stone-Cast-Aside-CN-III-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-   {                                                           
-      title:    "Tấm Bánh Bẻ Ra",                                  
-      subtitle: "Chúa nhật Tuần III – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Chúa nhật Tuần III – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: Tấm Bánh Bẻ Ra",                   
-      file:     "20260419-tam-banh-be-ra-cn-iii-phuc-sinh-2026-nam-a.mp3",           
-      download: "Tam-Banh-Be-ra-CN-III-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-   {                                                           
-      title:    "Năm Chiếc Bánh",                                  
-      subtitle: "Thứ Sáu Tuần II – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Thứ Sáu Tuần II – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: Năm Chiếc Bánh",                   
-      file:     "20260417-nam-chiec-banh-t6-ii-phuc-sinh-2026-nam-a.mp3",           
-      download: "Nam-Chiec-Banh-T6-II-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-   {                                                           
-      title:    "Tự Do Trong Ân Sủng",                                  
-      subtitle: "Thứ Tư Tuần II – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Thứ Tư Tuần II – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: Tự Do Trong Ân Sủng",                   
-      file:     "20260415-tu-do-trong-an-sung-t4-ii-phuc-sinh-2026-nam-a.mp3",           
-      download: "Tu-Do-Trong-An-Sung-T4-II-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-   {                                                           
-      title:    "Bình An Trong Ngài",                                  
-      subtitle: "Thứ Tư Tuần II – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Thứ Tư Tuần II – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: Bình An Trong Ngài",                   
-      file:     "20260415-binh-an-trong-ngai-t4-ii-phuc-sinh-2026-nam-a.mp3",           
-      download: "Binh-An-Trong-Ngay-T4-II-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-   {                                                           
-      title:    "Cầu Nối Đất Trời",                                  
-      subtitle: "Thứ Ba Tuần II – Mùa Phục Sinh 2026, Năm A",                   
-      liturgy:  "📅 Phụng vụ: Thứ Ba Tuần II – Mùa Phục Sinh 2026, Năm A",                    
-      song:     "🎵 Ca khúc: Cầu Nối Đất Trời",                   
-      file:     "20260414-cau-noi-dat-troi-t3-ii-phuc-sinh-2026-nam-a.mp3",           
-      download: "Cau-Noi-Dat-Troi-T3-II-Phuc-Sinh-2026-Nam-A.mp3"              
-    },      
-     
-    {
-      title:    "Đổi Mới Lòng Con",
-      subtitle: "Thứ Hai Tuần Bát Nhật Phục Sinh 2026 – Năm A",
-      liturgy:  "📅 Phụng vụ: Thứ Hai Tuần Bát Nhật Phục Sinh – Năm A",
-      song:     "🎵 Ca khúc: Đổi Mới Lòng Con",
-      file:     "20260413-doi-moi-long-con-t2-ii-phuc-sinh-2026-nam-a.mp3",
-      download: "Doi-Moi-Long-Con-T2-II-Phuc-Sinh-2026-Nam-A.mp3"
-    },
+  // ── BÀI MỚI NHẤT ĐẶT TRÊN ĐẦU ──────────────────────────────────
+  {
+    title:    "Đổi Mới Lòng Con",
+    subtitle: "Thứ Hai Tuần Bát Nhật Phục Sinh 2026 – Năm A",
+    liturgy:  "📅 Phụng vụ: Thứ Hai Tuần Bát Nhật Phục Sinh – Năm A",
+    song:     "🎵 Ca khúc: Đổi Mới Lòng Con",
+    file:     "20260413-doi-moi-long-con-t2-ii-phuc-sinh-2026-nam-a.mp3",
+    download: "Doi-Moi-Long-Con-T2-II-Phuc-Sinh-2026-Nam-A.mp3",
+    month:    4,
+    year:     "2025-2026"
+  },
 
-    // ────────────────────────────────────────────────────────────
-    {
-      title:    "Dưới Mái Hiên Tình Thương",
-      subtitle: "Chúa Nhật II Phục Sinh 2026 – Năm A",
-      liturgy:  "📅 Phụng vụ: Chúa Nhật II Phục Sinh – Năm A",
-      song:     "🎵 Ca khúc: Dưới Mái Hiên Tình Thương",
-      file:     "20260412-duoi-mai-hien-tinh-thuong-cn2-phuc-sinh-2026.mp3",
-      download: "Duoi-Mai-Hien-Tinh-Thuong-CN2-Phuc-Sinh-2026.mp3"
-    },
+  // ────────────────────────────────────────────────────────────────
+  {
+    title:    "Dưới Mái Hiên Tình Thương",
+    subtitle: "Chúa Nhật II Phục Sinh 2026 – Năm A",
+    liturgy:  "📅 Phụng vụ: Chúa Nhật II Phục Sinh – Năm A",
+    song:     "🎵 Ca khúc: Dưới Mái Hiên Tình Thương",
+    file:     "20260412-duoi-mai-hien-tinh-thuong-cn2-phuc-sinh-2026.mp3",
+    download: "Duoi-Mai-Hien-Tinh-Thuong-CN2-Phuc-Sinh-2026.mp3",
+    month:    4,
+    year:     "2025-2026"
+  },
 
-  ]; // ← KẾT THÚC DANH SÁCH – không sửa dòng này
+]; // ← KẾT THÚC DANH SÁCH – không sửa dòng này
 
-  // ── PLAYER LOGIC – không cần chỉnh bên dưới ─────────────────
-  const player      = document.getElementById("player");
-  const playerSrc   = document.getElementById("player-src");
-  const npTitle     = document.getElementById("np-title");
-  const npSubtitle  = document.getElementById("np-subtitle");
-  const dlLink      = document.getElementById("download-link");
-  const infoBox     = document.getElementById("info-box");
-  const infoLiturgy = document.getElementById("info-liturgy");
-  const infoSong    = document.getElementById("info-song");
-  const playlist    = document.getElementById("playlist");
-  let activeIndex   = -1;
+// ── LOGIC – không cần chỉnh bên dưới ───────────────────────────────
 
-  function loadTrack(index) {
-    const t   = tracks[index];
-    const url = BASE + t.file;
+const MONTH_NAMES = {
+  1:"Tháng 1", 2:"Tháng 2", 3:"Tháng 3", 4:"Tháng 4",
+  5:"Tháng 5", 6:"Tháng 6", 7:"Tháng 7", 8:"Tháng 8",
+  9:"Tháng 9", 10:"Tháng 10", 11:"Tháng 11", 12:"Tháng 12"
+};
 
-    playerSrc.src = url;
-    player.load();
-    player.play();
-    player.setAttribute("aria-label", "Nghe " + t.title + " – " + t.subtitle);
+// Derive unique years/months
+const years  = [...new Set(tracks.map(t => t.year))].sort();
+let activeYear  = years[0];
+let activeMonth = 0; // 0 = all
+let searchQ  = "";
+let activeIdx = -1;
 
-    npTitle.textContent     = "🎵 " + t.title;
-    npSubtitle.textContent  = t.subtitle;
-    dlLink.href             = url;
-    dlLink.setAttribute("download", t.download);
-    dlLink.style.display    = "inline-block";
-    infoLiturgy.textContent = t.liturgy;
-    infoSong.textContent    = t.song;
-    infoBox.style.display   = "block";
+// Refs
+const yearTabsEl  = document.getElementById("year-tabs");
+const monthChipsEl= document.getElementById("month-chips");
+const searchEl    = document.getElementById("search");
+const playlistEl  = document.getElementById("playlist");
+const listCountEl = document.getElementById("list-count");
+const player      = document.getElementById("player");
+const playerSrc   = document.getElementById("player-src");
+const npTitle     = document.getElementById("np-title");
+const npSubtitle  = document.getElementById("np-subtitle");
+const dlBtn       = document.getElementById("dl-btn");
+const infoBox     = document.getElementById("info-box");
+const infoLiturgy = document.getElementById("info-liturgy");
+const infoSong    = document.getElementById("info-song");
 
-    document.querySelectorAll(".track").forEach(function(el, i) {
-      el.classList.toggle("active", i === index);
-      el.querySelector(".track-icon").textContent  = i === index ? "▶" : "🎵";
-      el.querySelector(".track-badge").textContent = i === index ? "Đang phát" : "";
+// ── BUILD YEAR TABS ──────────────────────────────────
+function buildYearTabs() {
+  yearTabsEl.innerHTML = "";
+  years.forEach(function(y) {
+    const btn = document.createElement("button");
+    btn.className = "year-tab" + (y === activeYear ? " active" : "");
+    btn.textContent = "Năm " + y;
+    btn.setAttribute("aria-pressed", y === activeYear);
+    btn.addEventListener("click", function() {
+      activeYear  = y;
+      activeMonth = 0;
+      searchEl.value = "";
+      searchQ = "";
+      buildYearTabs();
+      buildMonthChips();
+      renderPlaylist();
     });
+    yearTabsEl.appendChild(btn);
+  });
+}
 
-    activeIndex = index;
+// ── BUILD MONTH CHIPS ────────────────────────────────
+function buildMonthChips() {
+  monthChipsEl.innerHTML = "";
+  const months = [...new Set(
+    tracks.filter(t => t.year === activeYear).map(t => t.month)
+  )].sort(function(a,b){ return a-b; });
+
+  // "Tất cả" chip
+  const allChip = document.createElement("button");
+  allChip.className = "chip all" + (activeMonth === 0 ? " active" : "");
+  allChip.textContent = "Tất cả";
+  allChip.addEventListener("click", function() {
+    activeMonth = 0;
+    buildMonthChips();
+    renderPlaylist();
+  });
+  monthChipsEl.appendChild(allChip);
+
+  months.forEach(function(m) {
+    const chip = document.createElement("button");
+    chip.className = "chip" + (m === activeMonth ? " active" : "");
+    chip.textContent = "T" + m;
+    chip.setAttribute("title", MONTH_NAMES[m]);
+    chip.setAttribute("aria-label", MONTH_NAMES[m]);
+    chip.addEventListener("click", function() {
+      activeMonth = m;
+      buildMonthChips();
+      renderPlaylist();
+    });
+    monthChipsEl.appendChild(chip);
+  });
+}
+
+// ── FILTER ───────────────────────────────────────────
+function filteredTracks() {
+  return tracks.filter(function(t) {
+    if (t.year !== activeYear) return false;
+    if (activeMonth !== 0 && t.month !== activeMonth) return false;
+    if (searchQ) {
+      const q = searchQ.toLowerCase();
+      return t.title.toLowerCase().includes(q) ||
+             t.subtitle.toLowerCase().includes(q);
+    }
+    return true;
+  });
+}
+
+// ── RENDER PLAYLIST ──────────────────────────────────
+function renderPlaylist() {
+  playlistEl.innerHTML = "";
+  const list = filteredTracks();
+
+  listCountEl.textContent = list.length + " bài";
+
+  if (list.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Không tìm thấy bài nào.";
+    playlistEl.appendChild(empty);
+    return;
   }
 
-  tracks.forEach(function(t, i) {
+  list.forEach(function(t, i) {
+    const globalIdx = tracks.indexOf(t);
+    const isActive  = globalIdx === activeIdx;
+
     const div = document.createElement("div");
-    div.className = "track";
+    div.className = "track" + (isActive ? " active" : "");
     div.setAttribute("role", "button");
     div.setAttribute("tabindex", "0");
     div.setAttribute("aria-label", "Phát " + t.title);
     div.innerHTML =
-      '<div class="track-icon">🎵</div>' +
+      '<div class="track-num">' + (i + 1) + '</div>' +
+      '<div class="track-icon">' + (isActive ? "▶" : "🎵") + '</div>' +
       '<div class="track-info">' +
         '<div class="track-name">' + t.title + '</div>' +
         '<div class="track-meta">' + t.subtitle + '</div>' +
       '</div>' +
-      '<span class="track-badge"></span>';
-    div.addEventListener("click", function() { loadTrack(i); });
-    div.addEventListener("keydown", function(e) {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadTrack(i); }
-    });
-    playlist.appendChild(div);
-  });
+      (isActive ? '<span class="track-badge">Đang phát</span>' : '');
 
-  player.addEventListener("ended", function() {
-    loadTrack((activeIndex + 1) % tracks.length);
+    div.addEventListener("click", function() { loadTrack(globalIdx); });
+    div.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadTrack(globalIdx); }
+    });
+    playlistEl.appendChild(div);
   });
+}
+
+// ── LOAD TRACK ───────────────────────────────────────
+function loadTrack(globalIdx) {
+  const t   = tracks[globalIdx];
+  const url = BASE + t.file;
+
+  playerSrc.src = url;
+  player.load();
+  player.play();
+  player.setAttribute("aria-label", "Nghe " + t.title);
+
+  npTitle.textContent     = "🎵 " + t.title;
+  npSubtitle.textContent  = t.subtitle;
+  dlBtn.href              = url;
+  dlBtn.setAttribute("download", t.download);
+  dlBtn.style.display     = "inline";
+  infoLiturgy.textContent = t.liturgy;
+  infoSong.textContent    = t.song;
+  infoBox.style.display   = "block";
+
+  activeIdx = globalIdx;
+  renderPlaylist();
+}
+
+// ── SEARCH ───────────────────────────────────────────
+searchEl.addEventListener("input", function() {
+  searchQ = searchEl.value.trim();
+  renderPlaylist();
+});
+
+// ── AUTO-ADVANCE ─────────────────────────────────────
+player.addEventListener("ended", function() {
+  const list = filteredTracks();
+  const cur  = list.findIndex(function(t) { return tracks.indexOf(t) === activeIdx; });
+  if (cur >= 0 && cur < list.length - 1) {
+    loadTrack(tracks.indexOf(list[cur + 1]));
+  }
+});
+
+// ── INIT ─────────────────────────────────────────────
+buildYearTabs();
+buildMonthChips();
+renderPlaylist();
 </script>
 </body>
 </html>
